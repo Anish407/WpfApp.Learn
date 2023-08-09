@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp.Learn"
+        xmlns:local="clr-namespace:WpfApp.Learn" xmlns:controls="clr-namespace:WpfApp.Learn.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="800">
     <Grid>
@@ -27,13 +27,7 @@
         </Menu>
 
         <!-- Header -->
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Background="#F05A28" Orientation="Horizontal">
-            <Image Source="/Images/logo.png" Width="100"/>
-            <TextBlock Text="Customers App" FontSize="30" 
-             Foreground="White"/>
-            <TextBlock Text="Version 1.0" FontSize="16"
-             Foreground="#333333"/>
-        </StackPanel>
+        <controls:NavMenuControl Grid.Row="1" Grid.ColumnSpan="2"/>
 
         <!-- Customer list -->
         <StackPanel Grid.Row="2" Background="#777">
