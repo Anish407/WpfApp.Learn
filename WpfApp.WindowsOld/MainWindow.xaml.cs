@@ -29,7 +29,6 @@ namespace WpfApp.WindowsOld
         {
             // the xaml element has a property called x:Name
             // that name can be used to access the button in the code
-            btn_CustomerAdd.Content = "Customer Added";
         }
     }
 }
