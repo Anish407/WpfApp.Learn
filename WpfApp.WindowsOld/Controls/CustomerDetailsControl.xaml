@@ -7,18 +7,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid x:Name="CustomerListGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!-- Customer list -->
-        <StackPanel Grid.Row="2" Background="#777" x:Name="CustomerListView">
-            <StackPanel Orientation="Horizontal">
+        <Grid Grid.Column="0" Background="#777" x:Name="CustomerListView">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
                 <Button Margin="10" Width="75">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Images/add.png" Height="18" Margin="0 0 5 0"/>
@@ -30,22 +30,17 @@
                     <Image Source="/Images/move.png" Height="18"/>
                 </Button>
             </StackPanel>
-            <Grid >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
+            <Grid Grid.Row="1">
                 <ListView Margin="10 0 10 0">
                     <ListViewItem>Julia</ListViewItem>
                     <ListViewItem>Alex</ListViewItem>
                     <ListViewItem>Thomas</ListViewItem>
                 </ListView>
             </Grid>
-        </StackPanel>
+        </Grid>
 
         <!-- Customer detail -->
-        <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
+        <StackPanel Grid.Column="1" Margin="10">
             <Label>Firstname:</Label>
             <TextBox/>
             <Label>Lastname:</Label>
