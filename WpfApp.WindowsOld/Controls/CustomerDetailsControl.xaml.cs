@@ -24,5 +24,13 @@ namespace WpfApp.WindowsOld.Controls
         {
             InitializeComponent();
         }
+
+        private void MoveGrid(object sender, RoutedEventArgs e)
+        {
+            var column = Grid.GetColumn(CustomerListView);
+
+            var newColumn = column == 0 ? 2 : 0;
+            Grid.SetColumn(CustomerListView, newColumn);
+        }
     }
 }
