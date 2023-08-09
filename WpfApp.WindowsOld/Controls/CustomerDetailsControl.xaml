@@ -31,7 +31,7 @@
                 </Button>
             </StackPanel>
             <Grid Grid.Row="1">
-                <ListView Margin="10 0 10 10">
+                <ListView Margin="10 0 10 5">
                     <ListViewItem>Julia</ListViewItem>
                     <ListViewItem>Alex</ListViewItem>
                     <ListViewItem>Thomas</ListViewItem>
