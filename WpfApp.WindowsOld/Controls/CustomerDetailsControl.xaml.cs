@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp.WindowsOld.Repository;
+using WpfApp.WindowsOld.ViewModels;
 
 namespace WpfApp.WindowsOld.Controls
 {
@@ -20,9 +22,19 @@ namespace WpfApp.WindowsOld.Controls
     /// </summary>
     public partial class CustomerDetailsControl : UserControl
     {
+        public CustomersViewModel CustomerViewModel { get; set; }
+
         public CustomerDetailsControl()
         {
+            CustomerViewModel = new CustomersViewModel(new CustomerRepository());  
+            DataContext = CustomerViewModel;
+            Loaded += LoadCustomers;
             InitializeComponent();
+        }
+
+        private async void LoadCustomers(object sender, RoutedEventArgs e)
+        {
+           await CustomerViewModel.GetCustomersAsync();
         }
 
         private void MoveGrid(object sender, RoutedEventArgs e)
