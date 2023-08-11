@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp.WindowsOld.Models;
 using WpfApp.WindowsOld.Repository;
 using WpfApp.WindowsOld.ViewModels;
 
@@ -43,6 +44,21 @@ namespace WpfApp.WindowsOld.Controls
 
             var newColumn = column == 0 ? 2 : 0;
             Grid.SetColumn(CustomerListView, newColumn);
+        }
+
+        private void Add_Customer_Click(object sender, RoutedEventArgs e)
+        {
+            Customers customers = new Customers
+            {
+                FirstName = "New Customer",
+                Id = 5,
+                IsDeveloper = false,
+                LastName = "Demo"
+            };
+            CustomerViewModel.Add(customers);
+            
+
+           
         }
     }
 }
