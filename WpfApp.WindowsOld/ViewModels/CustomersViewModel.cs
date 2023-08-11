@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp.WindowsOld.Enums;
 using WpfApp.WindowsOld.Models;
 using WpfApp.WindowsOld.Repository;
 
@@ -13,12 +14,11 @@ namespace WpfApp.WindowsOld.ViewModels
 {
     public class CustomersViewModel : ViewModelBase
     {
-        
         private readonly ICustomerRepository _customerRepository;
         private CustomerItemViewModel selectedCustomer;
-        private int gridRowSide = 2;
+        private GridSide gridRowSide = GridSide.Left;
 
-        public int GridRowSide 
+        public GridSide GridRowSide 
         { 
             get => gridRowSide;
             set 
@@ -57,7 +57,7 @@ namespace WpfApp.WindowsOld.ViewModels
 
         public void MoveGrid()
         {
-            GridRowSide= GridRowSide == 0 ? 2 : 0;
+            GridRowSide= GridRowSide == GridSide.Left ? GridSide.Right : GridSide.Left;
         }
 
         public void Add(CustomerItemViewModel customers)

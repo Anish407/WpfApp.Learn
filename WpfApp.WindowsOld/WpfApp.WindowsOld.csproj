@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Convertors\GridSideConverter.cs" />
+    <Compile Include="Enums\GridSide.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="ViewModels\CustomerItemViewModel.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />
