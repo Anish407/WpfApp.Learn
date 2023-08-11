@@ -11,12 +11,10 @@ using WpfApp.WindowsOld.Repository;
 
 namespace WpfApp.WindowsOld.ViewModels
 {
-    public class CustomersViewModel : INotifyPropertyChanged
+    public class CustomersViewModel : ViewModelBase
     {
         private readonly ICustomerRepository _customerRepository;
         private Customers selectedCustomer;
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public Customers SelectedCustomer 
         { 
@@ -52,9 +50,5 @@ namespace WpfApp.WindowsOld.ViewModels
             
         }
 
-        public void NotifyPropertyChange([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }
