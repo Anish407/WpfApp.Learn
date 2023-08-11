@@ -14,9 +14,9 @@ namespace WpfApp.WindowsOld.ViewModels
     public class CustomersViewModel : ViewModelBase
     {
         private readonly ICustomerRepository _customerRepository;
-        private Customers selectedCustomer;
+        private CustomerItemViewModel selectedCustomer;
 
-        public Customers SelectedCustomer 
+        public CustomerItemViewModel SelectedCustomer 
         { 
             get => selectedCustomer; 
             set {
@@ -29,25 +29,24 @@ namespace WpfApp.WindowsOld.ViewModels
         {
             _customerRepository = customerRepository;
         }
-        public ObservableCollection<Customers> Customers { get; set; }
-            = new ObservableCollection<Customers>();
+        public ObservableCollection<CustomerItemViewModel> Customers { get; set; }
+            = new ObservableCollection<CustomerItemViewModel>();
 
-        public async Task<ObservableCollection<Customers>> GetCustomersAsync()
+        public async Task<ObservableCollection<CustomerItemViewModel>> GetCustomersAsync()
         {
             if (Customers == null)
                 return Customers;
 
             foreach (var item in await _customerRepository.GetCustomers())
-                Customers.Add(item);
+                Customers.Add(new CustomerItemViewModel(item));
 
             return Customers;
         }
 
-        public void Add(Customers customers)
+        public void Add(CustomerItemViewModel customers)
         {
             Customers.Add(customers);
             SelectedCustomer = customers;
-            
         }
 
     }

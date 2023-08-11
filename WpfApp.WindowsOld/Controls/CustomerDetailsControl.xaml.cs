@@ -55,7 +55,7 @@ namespace WpfApp.WindowsOld.Controls
                 IsDeveloper = false,
                 LastName = "Demo"
             };
-            CustomerViewModel.Add(customers);
+            CustomerViewModel.Add(new CustomerItemViewModel(customers));
             
 
            
