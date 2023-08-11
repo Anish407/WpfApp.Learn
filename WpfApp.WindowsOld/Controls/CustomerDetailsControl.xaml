@@ -36,7 +36,6 @@
                     <ColumnDefinition Width="241*"/>
                 </Grid.ColumnDefinitions>
                 <ListView Margin="10 0 10 5" 
-                          x:Name="CustomersList"
                           DisplayMemberPath="FirstName"
                           SelectedItem="{Binding SelectedCustomer}"
                           ItemsSource="{Binding Customers}" Grid.ColumnSpan="2" 

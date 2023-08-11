@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp.Learn.ViewModels;
 
 namespace WpfApp.Learn
 {
@@ -16,14 +17,28 @@ namespace WpfApp.Learn
     /// </summary>
     public partial class MainWindow : Window
     {
+        public CustomerViewModel _CustomerViewModel { get; set; }= new ();
         public MainWindow()
         {
+            Loaded += PageLoad;
+            DataContext = _CustomerViewModel;
             InitializeComponent();
         }
 
-        private void AddCustomer(object sender, RoutedEventArgs e)
+        private async  void PageLoad(object sender, RoutedEventArgs e)
         {
+            await _CustomerViewModel.GetCustomersAsync();
+        }
 
+        private void AddCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            _CustomerViewModel.AddCustomer(new Models.Customer
+            {
+                FirstName = "New Customer",
+                Id = 5,
+                IsDeveloper = false,
+                LastName = "Demo"
+            });
         }
     }
 }
