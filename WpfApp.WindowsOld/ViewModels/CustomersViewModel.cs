@@ -13,8 +13,20 @@ namespace WpfApp.WindowsOld.ViewModels
 {
     public class CustomersViewModel : ViewModelBase
     {
+        
         private readonly ICustomerRepository _customerRepository;
         private CustomerItemViewModel selectedCustomer;
+        private int gridRowSide = 2;
+
+        public int GridRowSide 
+        { 
+            get => gridRowSide;
+            set 
+            {
+                gridRowSide = value;
+                NotifyPropertyChange();
+            }
+        }
 
         public CustomerItemViewModel SelectedCustomer 
         { 
@@ -41,6 +53,11 @@ namespace WpfApp.WindowsOld.ViewModels
                 Customers.Add(new CustomerItemViewModel(item));
 
             return Customers;
+        }
+
+        public void MoveGrid()
+        {
+            GridRowSide= GridRowSide == 0 ? 2 : 0;
         }
 
         public void Add(CustomerItemViewModel customers)

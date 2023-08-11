@@ -13,7 +13,8 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <!-- Customer list -->
-        <Grid Grid.Column="0" Background="#777" x:Name="CustomerListView">
+        <!--x:Name="CustomerListView"-->
+        <Grid Background="#777" Grid.Column="{Binding GridRowSide, Mode=TwoWay}" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />

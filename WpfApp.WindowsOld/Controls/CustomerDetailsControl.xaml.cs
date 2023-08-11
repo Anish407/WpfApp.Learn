@@ -33,6 +33,8 @@ namespace WpfApp.WindowsOld.Controls
             InitializeComponent();
         }
 
+        
+
         private async void LoadCustomers(object sender, RoutedEventArgs e)
         {
            await CustomerViewModel.GetCustomersAsync();
@@ -40,10 +42,11 @@ namespace WpfApp.WindowsOld.Controls
 
         private void MoveGrid(object sender, RoutedEventArgs e)
         {
-            var column = Grid.GetColumn(CustomerListView);
+            CustomerViewModel.MoveGrid();
+            //var column = Grid.GetColumn(CustomerListView);
 
-            var newColumn = column == 0 ? 2 : 0;
-            Grid.SetColumn(CustomerListView, newColumn);
+            //var newColumn = column == 0 ? 2 : 0;
+            //Grid.SetColumn(CustomerListView, newColumn);
         }
 
         private void Add_Customer_Click(object sender, RoutedEventArgs e)
