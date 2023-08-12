@@ -33,6 +33,9 @@ namespace WpfApp.WindowsOld.ViewModels
             }
         }
 
+        public bool IsCustomerSelected => SelectedCustomer != null;
+
+
         public CustomerItemViewModel SelectedCustomer
         {
             get => selectedCustomer;
@@ -41,6 +44,7 @@ namespace WpfApp.WindowsOld.ViewModels
                 selectedCustomer = value;
                 NotifyPropertyChange();
                 DeleteCommand.RaiseExecuteChangedEvent();
+                NotifyPropertyChange(nameof(IsCustomerSelected));
             }
         }
 
@@ -55,7 +59,7 @@ namespace WpfApp.WindowsOld.ViewModels
         }
 
         private bool CanDelete(object arg) => SelectedCustomer != null;
-      
+
 
         public ObservableCollection<CustomerItemViewModel> Customers { get; set; }
             = new ObservableCollection<CustomerItemViewModel>();
