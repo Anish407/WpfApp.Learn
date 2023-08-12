@@ -33,35 +33,31 @@ namespace WpfApp.WindowsOld.Controls
             InitializeComponent();
         }
 
-        
-
         private async void LoadCustomers(object sender, RoutedEventArgs e)
         {
            await CustomerViewModel.GetCustomersAsync();
         }
 
-        private void MoveGrid(object sender, RoutedEventArgs e)
-        {
-            CustomerViewModel.MoveGrid();
-            //var column = Grid.GetColumn(CustomerListView);
+        //private void MoveGrid(object sender, RoutedEventArgs e)
+        //{
+        //    CustomerViewModel.MoveGrid();
+        //    //var column = Grid.GetColumn(CustomerListView);
 
-            //var newColumn = column == 0 ? 2 : 0;
-            //Grid.SetColumn(CustomerListView, newColumn);
-        }
+        //    //var newColumn = column == 0 ? 2 : 0;
+        //    //Grid.SetColumn(CustomerListView, newColumn);
+        //}
 
-        private void Add_Customer_Click(object sender, RoutedEventArgs e)
-        {
-            Customers customers = new Customers
-            {
-                FirstName = "New Customer",
-                Id = 5,
-                IsDeveloper = false,
-                LastName = "Demo"
-            };
-            CustomerViewModel.Add(new CustomerItemViewModel(customers));
-            
-
+        //private void Add_Customer_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Customers customers = new Customers
+        //    {
+        //        FirstName = "New Customer",
+        //        Id = 5,
+        //        IsDeveloper = false,
+        //        LastName = "Demo"
+        //    };
+        //    CustomerViewModel.Add(new CustomerItemViewModel(customers));
            
-        }
+        //}
     }
 }
