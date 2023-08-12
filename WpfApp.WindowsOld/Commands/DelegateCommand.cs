@@ -16,7 +16,7 @@ namespace WpfApp.WindowsOld.Commands
 
         public event EventHandler CanExecuteChanged;
 
-        public void RaiseExecuteChangedEvent()=> CanExecuteChanged(this, EventArgs.Empty);   
+        public void RaiseExecuteChangedEvent()=> CanExecuteChanged(this, EventArgs.Empty);
 
         public bool CanExecute(object parameter)
         => (_canExecute == null || (_canExecute(parameter))) ? true : false;

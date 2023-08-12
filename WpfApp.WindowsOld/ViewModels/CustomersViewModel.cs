@@ -17,6 +17,7 @@ namespace WpfApp.WindowsOld.ViewModels
     {
         public DelegateCommand AddCommand { get; }
         public DelegateCommand MoveGridCommand { get; }
+        public DelegateCommand DeleteCommand { get; }
 
         private readonly ICustomerRepository _customerRepository;
         private CustomerItemViewModel selectedCustomer;
@@ -39,6 +40,7 @@ namespace WpfApp.WindowsOld.ViewModels
             {
                 selectedCustomer = value;
                 NotifyPropertyChange();
+                DeleteCommand.RaiseExecuteChangedEvent();
             }
         }
 
@@ -46,8 +48,14 @@ namespace WpfApp.WindowsOld.ViewModels
         {
             AddCommand = new DelegateCommand(Add);
             MoveGridCommand = new DelegateCommand(MoveGrid);
+            // this will register the candelete delegate
+            // and will call the registered delegate CanDelete() in this class
+            DeleteCommand = new DelegateCommand(Delete, CanDelete);
             _customerRepository = customerRepository;
         }
+
+        private bool CanDelete(object arg) => SelectedCustomer != null;
+      
 
         public ObservableCollection<CustomerItemViewModel> Customers { get; set; }
             = new ObservableCollection<CustomerItemViewModel>();
@@ -66,6 +74,11 @@ namespace WpfApp.WindowsOld.ViewModels
         public void MoveGrid(object parameter)
         {
             GridRowSide = GridRowSide == GridSide.Left ? GridSide.Right : GridSide.Left;
+        }
+
+        public void Delete(object parameter)
+        {
+            Customers.Remove(SelectedCustomer);
         }
 
         public void Add(object parameter)
