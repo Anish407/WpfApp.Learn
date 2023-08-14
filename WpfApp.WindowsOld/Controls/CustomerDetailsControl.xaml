@@ -41,14 +41,13 @@
             </StackPanel>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="230"/>
                 </Grid.ColumnDefinitions>
                 
                 <!--if we dont specify the itemplate then the toString method on the item on the itemsource is called
                   So if we override the to string method on the Customeritem model then it will be displayed here
                 -->
-                <ListView Margin="10 0 10 5" 
+                <ListView Grid.Row="0" Margin="10 0 10 5" 
                           SelectedItem="{Binding SelectedCustomer}"
                           ItemsSource="{Binding Customers}" Grid.ColumnSpan="2" 
                           ItemTemplate="{StaticResource CustomerListTemplate}"
