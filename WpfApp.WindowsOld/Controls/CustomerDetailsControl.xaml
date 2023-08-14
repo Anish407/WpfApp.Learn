@@ -8,6 +8,12 @@
     <Grid x:Name="CustomerListGrid">
         <Grid.Resources>
             <convertors:GridSideConverter x:Key="gridConverter"/>
+            <DataTemplate x:Key="CustomerListTemplate">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding FirstName}" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding LastName}" Margin="5 0 0 0"/>
+                </StackPanel>
+            </DataTemplate>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -45,16 +51,8 @@
                 <ListView Margin="10 0 10 5" 
                           SelectedItem="{Binding SelectedCustomer}"
                           ItemsSource="{Binding Customers}" Grid.ColumnSpan="2" 
+                          ItemTemplate="{StaticResource CustomerListTemplate}"
                           >
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding FirstName}" FontWeight="Bold"/>
-                                <TextBlock Text="{Binding LastName}" Margin="5 0 0 0"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                    
                 </ListView>
 
             </Grid>
