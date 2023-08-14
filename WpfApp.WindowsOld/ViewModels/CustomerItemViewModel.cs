@@ -39,5 +39,10 @@ namespace WpfApp.WindowsOld.ViewModels
                 NotifyPropertyChange();
             }
         }
+
+        public override string ToString()
+        {
+            return $"{FirstName}-{LastName}";
+        }
     }
 }

@@ -38,11 +38,24 @@
                     <ColumnDefinition Width="25*"/>
                     <ColumnDefinition Width="241*"/>
                 </Grid.ColumnDefinitions>
+                
+                <!--if we dont specify the itemplate then the toString method on the item on the itemsource is called
+                  So if we override the to string method on the Customeritem model then it will be displayed here
+                -->
                 <ListView Margin="10 0 10 5" 
-                          DisplayMemberPath="FirstName"
                           SelectedItem="{Binding SelectedCustomer}"
                           ItemsSource="{Binding Customers}" Grid.ColumnSpan="2" 
-                          />
+                          >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding FirstName}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding LastName}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    
+                </ListView>
 
             </Grid>
         </Grid>
