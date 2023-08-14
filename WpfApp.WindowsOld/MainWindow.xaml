@@ -29,7 +29,7 @@
         <!-- Header -->
         <controls:MenusControl Grid.Row="1" />
 
-        <controls:CustomerDetailsControl Grid.Row="2"/>
+        <controls:CustomerDetailsControl Grid.Row="2" DataContext="{Binding SelectedViewModel}"/>
        
         <!-- Statusbar -->
         <StatusBar Grid.Row="3" Grid.ColumnSpan="2">

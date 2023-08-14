@@ -23,20 +23,20 @@ namespace WpfApp.WindowsOld.Controls
     /// </summary>
     public partial class CustomerDetailsControl : UserControl
     {
-        public CustomersViewModel CustomerViewModel { get; set; }
+       // public CustomersViewModel CustomerViewModel { get; set; }
 
         public CustomerDetailsControl()
         {
-            CustomerViewModel = new CustomersViewModel(new CustomerRepository());  
-            DataContext = CustomerViewModel;
-            Loaded += LoadCustomers;
+            //CustomerViewModel = new CustomersViewModel(new CustomerRepository());  
+            //DataContext = CustomerViewModel;
+            //Loaded += LoadCustomers;
             InitializeComponent();
         }
 
-        private async void LoadCustomers(object sender, RoutedEventArgs e)
-        {
-           await CustomerViewModel.GetCustomersAsync();
-        }
+        //private async void LoadCustomers(object sender, RoutedEventArgs e)
+        //{
+        //    await CustomerViewModel.GetCustomersAsync();
+        //}
 
         //private void MoveGrid(object sender, RoutedEventArgs e)
         //{
@@ -45,19 +45,6 @@ namespace WpfApp.WindowsOld.Controls
 
         //    //var newColumn = column == 0 ? 2 : 0;
         //    //Grid.SetColumn(CustomerListView, newColumn);
-        //}
-
-        //private void Add_Customer_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Customers customers = new Customers
-        //    {
-        //        FirstName = "New Customer",
-        //        Id = 5,
-        //        IsDeveloper = false,
-        //        LastName = "Demo"
-        //    };
-        //    CustomerViewModel.Add(new CustomerItemViewModel(customers));
-           
         //}
     }
 }

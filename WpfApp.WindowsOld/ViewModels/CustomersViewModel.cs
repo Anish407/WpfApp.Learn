@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using WpfApp.WindowsOld.Commands;
 using WpfApp.WindowsOld.Enums;
@@ -96,6 +90,11 @@ namespace WpfApp.WindowsOld.ViewModels
             });
             Customers.Add(customers);
             SelectedCustomer = customers;
+        }
+
+        public override async Task LoadAsync()
+        {
+            Customers = await GetCustomersAsync();
         }
 
     }

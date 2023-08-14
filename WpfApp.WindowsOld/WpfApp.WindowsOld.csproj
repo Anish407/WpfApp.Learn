@@ -61,6 +61,7 @@
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="ViewModels\CustomerItemViewModel.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Page Include="Controls\CustomerDetailsControl.xaml">
       <SubType>Designer</SubType>
