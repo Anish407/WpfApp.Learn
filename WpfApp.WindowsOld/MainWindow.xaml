@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:WpfApp.WindowsOld" xmlns:controls="clr-namespace:WpfApp.WindowsOld.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="CustomerDetails">
+            <controls:CustomerDetailsControl></controls:CustomerDetailsControl>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -29,8 +34,11 @@
         <!-- Header -->
         <controls:MenusControl Grid.Row="1" />
 
-        <controls:CustomerDetailsControl Grid.Row="2" DataContext="{Binding SelectedViewModel}"/>
-       
+        <!--<controls:CustomerDetailsControl Grid.Row="2" DataContext="{Binding SelectedViewModel}"/>-->
+        <ContentControl Grid.Row="2" Content="{Binding SelectedViewModel}" ContentTemplate="{StaticResource CustomerDetails}" />
+
+
+
         <!-- Statusbar -->
         <StatusBar Grid.Row="3" Grid.ColumnSpan="2">
             <StatusBarItem FontSize="20" Content=" (c) Wired Brain Coffee"/>
